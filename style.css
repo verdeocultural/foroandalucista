@@ -1,0 +1,276 @@
+/* Variables de colores (Blanquiverde) */
+:root {
+    /* Verde bandera de Andalucía aproximado */
+    --verde-andaluz: #00853f; 
+    --blanco: #ffffff;
+    --texto-oscuro: #333333;
+    --fondo-claro: #f4f4f4;
+}
+
+/* Ajustes generales y scroll suave */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--texto-oscuro);
+    background-color: var(--fondo-claro);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+/* Header */
+header {
+    background-color: var(--verde-andaluz);
+    color: var(--blanco);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor principal a dos columnas */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+/* Manifiesto y Desplegable */
+.manifesto {
+    background: var(--blanco);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Asegúrate de reemplazar el bloque .signatories anterior con este, o simplemente añade las nuevas reglas debajo */
+
+.signatories {
+    margin-top: 40px;
+    padding: 15px;
+    background-color: var(--fondo-claro);
+    border-left: 4px solid var(--verde-andaluz);
+    border-radius: 4px;
+}
+
+.signatories summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--verde-andaluz);
+    font-size: 1.1rem;
+}
+
+.signatories-content {
+    margin-top: 15px;
+}
+
+.update-text {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.signatories-content ol {
+    margin-top: 0;
+    padding-left: 20px;
+}
+
+.signatories-content li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+/* Barra lateral y formulario fijo */
+.sticky-form {
+    position: sticky;
+    top: 20px;
+    background: var(--blanco);
+    padding: 15px; /* Reducimos el padding para que el iframe tenga más espacio */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--verde-andaluz);
+    overflow: hidden; /* Evita que el iframe sobresalga de las esquinas redondeadas */
+}
+
+.sticky-form h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--verde-andaluz);
+    color: var(--blanco);
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #006b33;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--texto-oscuro);
+    color: var(--blanco);
+    margin-top: 40px;
+}
+
+footer a {
+    color: var(--verde-andaluz);
+}
+
+/* Botón flotante Volver Arriba */
+#btn-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--texto-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none; /* Oculto por defecto */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+/* Botón flotante Móvil (Firmar) */
+#btn-mobile-sign {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--verde-andaluz);
+    color: var(--blanco);
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    display: none; /* Oculto en escritorio */
+}
+
+/* Adaptación a dispositivos móviles */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Pasa a 1 sola columna */
+    }
+
+    .manifesto {
+        padding: 20px;
+    }
+
+    .sticky-form {
+        position: static; /* Deja de ser fijo en móvil, se apila abajo */
+        margin-bottom: 60px; /* Deja espacio para el botón flotante */
+    }
+
+    #btn-mobile-sign {
+        display: block; /* Muestra el botón de firmar abajo del todo */
+    }
+
+    #btn-top {
+        bottom: 70px; /* Sube el botón de volver arriba para que no lo tape el de firmar */
+        right: 20px;
+    }
+}
+
+.legal-notice {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.75rem; /* Tamaño pequeño */
+    line-height: 1.3;
+    color: #666;
+    text-align: justify;
+}
+
+.legal-notice strong {
+    color: var(--texto-oscuro);
+}
+
+.form-title {
+    text-align: center;
+    color: var(--verde-andaluz); /* Usamos el verde de la bandera */
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente el logo y el texto */
+    gap: 12px;           /* Espacio entre el logo y el texto */
+}
+
+.header-logo {
+    height: 40px;        /* Ajusta esta altura según prefieras */
+    width: auto;         /* Mantiene la proporción de la imagen */
+    display: block;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--blanco);
+}
